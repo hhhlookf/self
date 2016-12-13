@@ -1,0 +1,107 @@
+/*导航条的样式*/
+.nav-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    background: #262626;
+}
+.con {
+    width: 1000px;
+    margin: 0 auto;
+}
+.logo, .nav-item {
+    float: left;
+}
+.nav-fn {
+    float: right;
+    height: 100px;
+}
+.logo {
+    height: 67px;
+    padding-left: 81px;
+    padding-top: 33px;
+    background: url('../images/logo.png') left center no-repeat;
+}
+.search, .per {
+    float: left;
+}
+.search {
+    position: relative;
+    padding-top: 32px;
+    margin-right: 20px;
+}
+.search input {
+    width: 138px;
+    height: 36px;
+    padding-left: 20px;
+    padding-right: 40px;
+    border: 1px solid #4951f2;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    background: #262626;
+    outline: none;
+    color: #fff;
+}
+.glass {
+    position: absolute;
+    right: 0;
+    top: 32px;
+    bottom: 0;
+    width: 40px;
+    background: url('../images/search.png') center center no-repeat;
+}
+.per {
+    padding-top: 28px;
+}
+.per a {
+    float: right;
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+    border: 1px solid #4951f2;
+    color: #4951f2;
+    text-align: center;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+}
+.zc {
+    margin-left: 10px;
+}
+.nav-item {
+    margin-left: 20px;
+}
+.xq_navli a {
+    display: block;
+    line-height: 100px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: currentcolor;
+}
+.xq_bag {height: 100px; overflow: hidden; position: relative;}
+.xq_navbar { width: 100%; height: 100px; overflow: hidden; box-sizing: border-box; box-sizing: inherit; }
+.xq_navli { list-style: none; display: inline-block; color: #fff; box-sizing: inherit; text-align: center; float: left; width: 70px;}
+.xq_move { transition: all .3s ease-in-out; position: absolute;}
+.banner {
+    background: #333;
+}
+
+
+/*版权的样式*/
+.copyright-bg {
+    padding: 33px 0;
+    background: #282828;
+    line-height: 42px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+.copyright-bg i {
+    margin: 0 36px;
+}
