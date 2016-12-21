@@ -1,0 +1,42 @@
+@import "../reset";
+html, body {
+  background: #fff;
+}
+.application-red {
+  padding-bottom: (110/27)+rem;
+  .left-side {
+    float: left;
+    width: (194/27)+rem;
+    color: #808080;
+  }
+  .right-side {
+    float: left;
+    width: (436/27)+rem;
+    color: #4B4B4B;
+  }
+  .color {
+    color: #FE5534;
+  }
+  .top-block {
+    position: relative;
+    padding: (43/27)+rem (28/27)+rem (28/27)+rem;
+    font-size: (28/27)+rem;
+    li {
+      min-height: (42/27)+rem;
+      margin-bottom: (16/27)+rem;
+      line-height: (42/27)+rem;
+      @extend .clearfix;
+    }
+  }
+  .btn .tij {
+    width: (500/27)+rem;
+    height: (66/27)+rem;
+    margin: (270/27)+rem auto 0;
+    background: #2cbcad;
+    color: #fff;
+    font-size: (30/27)+rem;
+    text-align: center;
+    line-height: (66/27)+rem;
+    border-radius: 3px;
+  }
+}

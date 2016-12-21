@@ -1,0 +1,52 @@
+@import "../reset";
+.canRedTotal {
+  height: (300/28)+rem;
+  padding: (100/28)+rem 0 0 (40/28)+rem;
+  background: #fafafa url(../../images/application-handle/page.png) center right no-repeat;
+  background-size: (370/28)+rem (187/28)+rem;
+  color: #808080;
+  box-sizing: border-box;
+  span {
+    font-size: (40/28)+rem;
+    line-height: (120/28)+rem;
+    color: #4b4b4b;
+    em {
+      color: #df0722;
+      margin-right: (110/28)+rem;
+    }
+  }
+}
+.fill {
+  position: relative;
+  padding-left: (40/28)+rem;
+  .tit {
+    line-height: (97/28)+rem;
+    font-size: (35/28)+rem;
+  }
+  input {
+    width: (678/28)+rem;
+    height: (58/28)+rem;
+    padding-left: (20/28)+rem;
+    margin: 0 auto;
+    border: 1px solid rgba(#bdbdbd, 0.7);
+    -webkit-appearance: none;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+
+  span {
+    position: absolute;
+    right: (40/28)+rem;
+    top: (110/28)+rem;
+    color: #808080;
+  }
+}
+.btn {
+  width: (660/28)+rem;
+  height: (75/28)+rem;
+  margin: (500/28)+rem auto 0;
+  background: #2cbcad;
+  color: #fff;
+  text-align: center;
+  line-height: (75/28)+rem;
+}

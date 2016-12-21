@@ -1,0 +1,92 @@
+@import "../mixins";
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: (90/28)+rem;
+  background: #2CBCAD;
+  img:nth-child(1) {
+    float: left;
+    width: (54/28)+rem;
+    height: (43/28)+rem;
+    margin: (25/28)+rem 0 0 (36/28)+rem;
+  }
+  img:nth-child(2) {
+    float: left;
+    width: (490/28)+rem;
+    height: (56/28)+rem;
+    margin: (16/28)+rem 0 0 (46/28)+rem;
+  }
+  img:nth-child(3) {
+    float: left;
+    width: (44/28)+rem;
+    height: (44/28)+rem;
+    margin: (26/28)+rem 0 0 (36/28)+rem;
+  }
+}
+nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  &:after {
+    @include border(top);
+  }
+  a {
+    display: table-cell;
+    width: 1%;
+    padding-top: (60/28)+rem;
+    height: (98/28)+rem;
+    color: #808080;
+    font-size: (24/28)+rem;
+    text-align: center;
+    box-sizing: border-box;
+    &.active {
+      color: #2CBCAD;
+    }
+    &:nth-child(1) {
+      background: #fff url(../../images/nav/home.png) center (15/28)+rem no-repeat;
+      background-size: (44/28)+rem (40/28)+rem;
+      &.active {
+        background: #fff url(../../images/nav/home-c.png) center (15/28)+rem no-repeat;
+        background-size: (44/28)+rem (40/28)+rem;
+      }
+    }
+    &:nth-child(2) {
+      background: #fff url(../../images/nav/clafy.png) center (15/28)+rem no-repeat;
+      background-size: (44/28)+rem (40/28)+rem;
+      &.active {
+        background: #fff url(../../images/nav/clafy-c.png) center (15/28)+rem no-repeat;
+        background-size: (44/28)+rem (40/28)+rem;
+      }
+    }
+    &:nth-child(3) {
+      position: relative;
+      background: #fff;
+      img {
+        position: absolute;
+        z-index: 10;
+        top: -(48/28)+rem;
+        left: 50%;
+        width: (106/28)+rem;
+        height: (106/28)+rem;
+        margin-left: -(106/2/28)+rem;
+      }
+    }
+    &:nth-child(4) {
+      background: #fff url(../../images/nav/menu.png) center (15/28)+rem no-repeat;
+      background-size: (44/28)+rem (40/28)+rem;
+      &.active {
+        background: #fff url(../../images/nav/menu-c.png) center (15/28)+rem no-repeat;
+        background-size: (44/28)+rem (40/28)+rem;
+      }
+    }
+    &:nth-child(5) {
+      background: #fff url(../../images/nav/my.png) center (15/28)+rem no-repeat;
+      background-size: (44/28)+rem (40/28)+rem;
+      &.active {
+        background: #fff url(../../images/nav/my-c.png) center (15/28)+rem no-repeat;
+        background-size: (44/28)+rem (40/28)+rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.info-put-in .info {
+  margin-bottom: 0.81481rem; }
+  .info-put-in .info input {
+    width: 19.62963rem;
+    padding: 0 0.37037rem;
+    border: 1px solid rgba(221, 221, 221, 0.5);
+    box-sizing: border-box; }
+    .info-put-in .info input.rili {
+      background: url("../../images/purchase/rili.png") 96% 50% no-repeat;
+      background-size: 1.14815rem 1.14815rem; }
+    .info-put-in .info input.tuij {
+      background: url("../../images/order-detail/arrow-right.png") 96% 50% no-repeat;
+      background-size: 0.48148rem 0.96296rem; }

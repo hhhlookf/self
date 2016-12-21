@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="cgmall" class="tb-received-saleman-html">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>待接收-选择销售代表</title>
+    <link rel="stylesheet" href="assets/css/tb-received/tb-received.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-received/tb-received-saleman.js"></script>
+</head>
+<body ng-controller="SaleMan as saleman" ng-cloak>
+    <ul class="tb-received-saleman-wrapper">
+        <li class="" hm-tap="saleman.select($index, item.id)" ng-repeat="item in saleman.items">
+            <div class="content clearfix">
+                <div class="img-select">
+                    <img ng-src="assets/images/tb-received/{{ saleman.liIndex === $index ? 'selected' : 'unselect'}}.png" alt="" class="unselect">
+                </div>
+                <section>
+                    <table>
+                        <tr>
+                            <td>
+                            <span>
+                                销售代表
+                            </span>
+                            </td>
+                            <td>
+                                <strong class="textOverflow">
+                                    {{ item.name }}
+                                </strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <span>
+                                联系电话
+                            </span>
+                            </td>
+                            <td>
+                                <strong class="textOverflow">
+                                    {{ item.tel }}
+                                </strong>
+                            </td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<td>-->
+                            <!--<span class="bz">-->
+                                <!--备注-->
+                            <!--</span>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                                <!--<p>-->
+                                    <!--内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容-->
+                                <!--</p>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                    </table>
+                </section>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

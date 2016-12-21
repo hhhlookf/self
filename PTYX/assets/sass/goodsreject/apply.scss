@@ -1,0 +1,51 @@
+@charset "UTF-8";
+@import "../_mixins";
+
+html,body {background: #fff;}
+h2 {
+  margin: (20/27)+rem;
+  font-size: (27/27)+rem;
+  color: #4A4A4A;
+}
+input {
+  display: block;
+  width: (680/27)+rem;
+  height: (56/27)+rem;
+  margin: 0 (20/27)+rem (30/27)+rem;
+  border: 1px solid rgba(#ddd, .7);
+  -webkit-appearance: none;
+  font-size: (27/27)+rem;
+  text-indent: (10/27)+rem;
+  color: #808080;
+}
+select {
+  @extend input;
+  position: relative;
+  background: url(../../images/goodsreject/arrow-down.png) no-repeat 97% 50%;
+  background-size: (22/27)+rem (12/27)+rem;
+  margin-bottom: (45/27)+rem;
+}
+.reason, textarea {
+  width: (720/27)+rem;
+  height: (380/27)+rem;
+}
+.reason {
+  position: relative;
+  background: url(../../images/goodsreject/textarea-bg1.png) no-repeat (20/27)+rem (5/27)+rem;
+  background-size: (90/27)+rem (50/27)+rem;
+  &:before {@include border(top,#ddd)}
+  &:after {@include border(bottom,#ddd)}
+  &.no-bg {background: none;}
+}
+textarea {
+  resize: none;
+  border: none;
+  box-sizing: border-box;
+  padding: 0 (20/27)+rem;
+  background: url(../../images/goodsreject/textarea-bg2.png);
+  background-size: (720/27)+rem (65/27)+rem;
+
+  font-size: (27/27)+rem;
+  color: #808080;
+  line-height: (65/27)+rem;
+}

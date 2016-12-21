@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="cgmall" ng-cloak ng-controller="SettlAddCtrl">
+<head>
+    <meta charset="UTF-8">
+    <title>添加结算记录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <link rel="stylesheet" href="assets/css/tb-submit/settl-add.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-submit/settl-add.js"></script>
+    <script src="assets/js/directives/positive-number.js"></script>
+</head>
+<body>
+    <div class="settl-add">
+        <div class="settl-add-title">付款方式</div>
+        <div class="tab-bar">
+            <div class="tab-item"
+                 ng-class="{active: data.payType === item.value}"
+                 ng-repeat="item in payTypes"
+                 hm-tap="payTypechoose()">
+                <div class="radio"></div><span>{{item.label}}</span>
+            </div>
+        </div>
+        <div class="tab-container">
+            <div class="sx-content">
+                <div class="info" ng-if="data.payType === 4">
+                    <div class="info-title">订单金额</div>
+                    <div class="info-desc price">&yen;{{totalAmount_guoc}}</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">应付金额</div>
+                    <div class="info-desc price">&yen;{{payMoney_guoc | number: 2}}</div>
+                </div>
+                <div class="info">
+                    <div class="info-title" ng-if="data.payType === 1">本次支付额度</div>
+                    <div class="info-title" ng-if="data.payType === 4">支付额度</div>
+                    <div class="info-desc">
+                        <input type="number" class="num-input" ng-model="data.money" positive-number>
+                    </div>
+                </div>
+                <div class="info" ng-if="data.payType === 4">
+                    <div class="info-title">支付日期</div>
+                    <div class="info-desc">
+                        <input
+                                style="background:url(assets/images/purchase/rili.png) 96% 50% no-repeat;background-size:1.14815rem 1.14815rem;"
+                                readonly
+                                type="text"
+                                class="num-input"
+                                hm-tap="getDate()"
+                                ng-model="jhTime | date: 'yyyy-MM-dd'">
+                    </div>
+                </div>
+                <p class="note" ng-if="data.payType === 1">
+                    备注：担保支付需提前支付，但只有在<em>(确认交收)</em>后才会将贷款结算给卖方
+                </p>
+                <p class="note" ng-if="data.payType === 4">
+                    备注：帐期支付属于先货后款，待买方<em>(确认交收)</em>后，应收应付记录将自动生效
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer class="foot-static">
+        <div class="btn btn-primary" hm-tap="settlAdd()">确定</div>
+    </footer>
+</body>
+</html>

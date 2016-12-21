@@ -1,0 +1,35 @@
+@import "../reset";
+@import "../mixins";
+html, body {
+  background: #fff;
+}
+.tb-deliver-gdetail, .delivering-gdetail {
+  padding-bottom: (110/27)+rem;
+  .left-side {
+    float: left;
+    width: (126/27)+rem;
+    color: #808080;
+  }
+  .right-side {
+    float: left;
+    width: (503/27)+rem;
+    color: #4B4B4B;
+  }
+  .color {
+    color: #FE5534;
+  }
+  .detail-con {
+    padding: (43/27)+rem (28/27)+rem 0;
+    li {
+      min-height: (42/27)+rem;
+      margin-bottom: (29/27)+rem;
+      @extend .clearfix;
+    }
+  }
+  .goods-name {
+    color: #4A4A4A;
+    font-size: (34/27)+rem;
+    margin-bottom: (22/27)+rem;
+  }
+
+}

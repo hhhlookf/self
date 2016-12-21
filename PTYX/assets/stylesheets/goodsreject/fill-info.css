@@ -1,0 +1,165 @@
+html {
+  color: #000;
+  background: #f5f5f6;
+  font-family: sans-serif;
+  font-size: 27px; }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, strong, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif; }
+
+body {
+  background: #f5f5f6; }
+
+input {
+  border: none; }
+
+button {
+  border: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+a {
+  text-decoration: none;
+  color: #00c;
+  outline: none; }
+
+var, em, strong {
+  font-style: normal; }
+
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+  font-style: inherit;
+  font-weight: inherit; }
+
+del, ins {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6, b {
+  font-size: 100%;
+  font-weight: normal; }
+
+q:before, q:after {
+  content: ''; }
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+sup {
+  vertical-align: baseline; }
+
+sub {
+  vertical-align: baseline; }
+
+legend {
+  color: #000; }
+
+i {
+  font-style: normal; }
+
+input, button, textarea, select, optgroup, option {
+  outline: none; }
+
+input, button, textarea, select {
+  *font-size: 100%; }
+
+article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+  display: block; }
+
+/*body{-webkit-user-select:none;-webkit-text-size-adjust:none;}*/
+* {
+  -webkit-tap-highlight-color: transparent; }
+
+.clearfix:after, .head:after {
+  content: "\200B";
+  display: block;
+  height: 0;
+  clear: both; }
+
+.clearfix, .head {
+  *zoom: 1; }
+
+.textOverflow, .head .total p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+html, body {
+  background: #fff; }
+
+.head {
+  height: 7.77778rem;
+  box-sizing: border-box;
+  background: #2cbcad;
+  text-align: center; }
+  .head img {
+    display: inline-block;
+    width: 5.77778rem;
+    height: 4.44444rem;
+    margin-top: 1.85185rem;
+    vertical-align: middle; }
+  .head .total {
+    display: inline-block;
+    margin: 0 0.74074rem;
+    vertical-align: middle; }
+    .head .total h1 {
+      margin-top: 1.85185rem;
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.85185rem;
+      text-align: left; }
+    .head .total p {
+      max-width: 18.51852rem;
+      font-size: 1.33333rem;
+      color: #fff;
+      line-height: 2.14815rem; }
+    .head .total em {
+      font-size: 2.14815rem; }
+
+.bill {
+  position: relative;
+  padding-bottom: 20px;
+  background: url(../../images/tb-submit/dotted.png) repeat-x center bottom; }
+  .bill .bill-name {
+    margin: 0.74074rem;
+    margin-bottom: 0;
+    font-size: 1.18519rem;
+    color: #4B4B4B;
+    line-height: 2.22222rem; }
+  .bill .bill-delete {
+    position: absolute;
+    right: 0;
+    top: 0.18519rem;
+    width: 3.7037rem;
+    height: 1.85185rem;
+    background: #CECECE;
+    border-top-left-radius: 0.92593rem;
+    border-bottom-left-radius: 0.92593rem;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    text-indent: 0.55556rem;
+    line-height: 1.85185rem; }
+
+.no-data img {
+  display: block;
+  width: 6.22222rem;
+  height: 5.40741rem;
+  margin: 5.55556rem auto 1.2963rem; }
+
+.no-data p {
+  font-size: 1rem;
+  color: #808080;
+  text-align: center; }

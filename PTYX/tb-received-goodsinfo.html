@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <link rel="stylesheet" href="assets/css/tb-received/tb-received.min.css">
+    <link rel="stylesheet" href="assets/css/tb-submit/goods-opera.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-received/tb-received-goodsinfo.js"></script>
+</head>
+<body ng-cloak ng-controller="GoodsDetailCtrl">
+
+<div class="info-list">
+    <div class="info-list-title">{{itemDetail.goodsName}}</div>
+    <div class="info">
+        <div class="info-title">品牌</div>
+        <div class="info-desc">{{itemDetail.brand}}</div>
+    </div>
+    <div class="info">
+        <div class="info-title">厂家</div>
+        <div class="info-desc">{{itemDetail.manu}}</div>
+    </div>
+    <div class="info">
+        <div class="info-title">规格</div>
+        <div class="info-desc">{{itemDetail.dimension}}</div>
+    </div>
+    <div class="info">
+        <div class="info-title">单价</div>
+        <div class="info-desc price">&yen;{{itemDetail.price | number: 4}}</div>
+    </div>
+    <div class="info info-exist-input">
+        <div class="info-title">数量</div>
+        <div class="info-desc">{{itemDetail.orderQty + itemDetail.unit}}</div>
+    </div>
+    <div class="info info-exist-input">
+        <div class="info-title">改后数量</div>
+        <div class="info-desc price">600</div>
+    </div>
+    <div class="info info-exist-input">
+        <div class="info-title">改后价格</div>
+        <div class="info-desc price">&yen;120</div>
+    </div>
+
+    <div ng-if="itemDetail.bargain">
+        <div class="info info-exist-input">
+            <div class="info-title">期望价格</div>
+            <div class="info-desc">&yen;{{itemDetail.bargainPrice | number: 4}}</div>
+        </div>
+        <div class="info info-exist-input">
+            <div class="info-title">议价备注</div>
+            <div class="info-desc">{{itemDetail.bargainNotes || '无'}}</div>
+        </div>
+    </div>
+    <div class="info info-exist-input">
+        <div class="info-title">最小起订量</div>
+        <div class="info-desc">10</div>
+    </div>
+    <div class="info info-exist-input">
+        <div class="info-title">生成专供</div>
+        <div class="zk">
+            <div class="info-desc">是</div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="foot-static">
+    <div class="btn btn-default" hm-tap="itemDelete()">删除</div>
+    <div class="btn btn-primary" hm-tap="goToItemUpdate()">修改</div>
+</footer>
+
+
+</body>
+</html>

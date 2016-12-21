@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>点击抽大奖</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="assets/css/activity-pop/activity-pop.min.css">
+    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/angular-sanitize.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/activity-pop/activity-pop-un.js"></script>
+  </head>
+  <body ng-controller="ActivityPopUn">
+    <div class="mask">
+      <div class="pop pop-k1">
+        <div class="top"></div>
+        <div class="bot">
+          <p>庆普天药械2.0上线，抽奖活动。</p>
+          <a hm-tap="goToDraw()">点击抽大奖</a>
+        </div>
+        <div class="close" hm-tap="closeWebView()"></div>
+      </div>
+    </div>
+  </body>
+</html>

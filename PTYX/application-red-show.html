@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>冲红记录-详情页</title>
+    <link rel="stylesheet" href="assets/css/application/application-red.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/application/application-red-show.js"></script>
+</head>
+<body ng-controller="applicationRedShow">
+<div class="application-red">
+    <ul class="top-block">
+        <li>
+            <span class="left-side">结算单号</span>
+            <span class="right-side">{{currentRed.settlementNo}}</span>
+        </li>
+        <li>
+            <span class="left-side">应收金额</span>
+            <span class="right-side">{{currentRed.payableAmount}}</span>
+        </li>
+        <li>
+            <span class="left-side">已冲红金额</span>
+            <span class="right-side">{{-currentRed.redAmount}}</span>
+        </li>
+        <li>
+            <span class="left-side">拟冲红总额</span>
+            <span class="right-side color">{{-currentRed.planRedAmount}}</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

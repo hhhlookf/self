@@ -1,0 +1,96 @@
+<!doctype html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <title>待发货-填写发货信息</title>
+    <link rel="stylesheet" href="assets/css/tb-deliver/tb-deliver-write.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-deliver/tb-deliver-write-infor.js"></script>
+</head>
+<body ng-controller="tbDeliverWriteInfo">
+    <div class="tb-deliver-write-info">
+        <div class="item">
+            <span>发货人</span><input name="delName" ng-model="submitData.sender" type="text">
+        </div>
+        <div class="item">
+            <span>电话</span><input type="number" ng-model="submitData.tel">
+        </div>
+        <div class="item" hm-tap="getDate()">
+            <span>发货日期</span>
+            <div class="date">{{submitData.sendDate|date: "yyyy-MM-dd"}}</div>
+        </div>
+        <div class="item">
+            <span>物流单号</span><input type="text" ng-model="submitData.logisticsCode">
+        </div>
+        <div class="item">
+            <span>物流企业</span><input type="text" ng-model="submitData.logisticsName">
+        </div>
+        <div class="item">
+            <span>物流电话</span><input type="number" ng-model="submitData.logisticsTel">
+        </div>
+        <div class="item">
+            <span>物流说明</span><input type="text" ng-model="submitData.logisticsRemark">
+        </div>
+    </div>
+    <div class="deliver-detail">
+        <header>发货明细</header>
+        <div class="goods" ng-repeat="goods in data">
+            <div class="record">
+                <span class="left">goodsName</span>
+                <div class="right">{{goods.goodsName}}</div>
+            </div>
+            <div class="record">
+                <span class="left">规格</span>
+                <div class="right">{{goods.dimension}}</div>
+            </div>
+            <div class="record">
+                <span class="left" style="width:8.15rem">已发/下单数量</span>
+                <div class="right">{{goods.totalDeliveryQty}}</div>
+            </div>
+            <div class="record">
+                <span class="left">应发数量</span>
+                <div class="right">{{goods.sendCount}}</div>
+            </div>
+            <div class="record">
+                <span class="left">品牌</span>
+                <div class="right">{{goods.brandName}}</div>
+            </div>
+            <div class="record">
+                <span class="left">厂家</span>
+                <div class="right">{{goods.manufactureName}}</div>
+            </div>
+
+            <div ng-class="{'add-item':$index>0}" ng-repeat="batch in submitData.goodsBatch[$index].batchList">
+                <div class="record">
+                    <span class="left">生产批号</span>
+                    <input type="text" ng-model="batch.productionNo">
+                </div>
+                <div class="record">
+                    <span class="left">有效期截止</span>
+                    <div class="date" hm-tap="getSmallDate($parent.$index, $index)">{{batch.validTime|date: "yyyy-MM-dd"}}</div>
+                </div>
+                <div class="record">
+                    <span class="left">发货数量</span>
+                    <input type="number" ng-model="batch.deliveryQty">
+                </div>
+            </div>
+
+            <div class="delete" ng-if="submitData.goodsBatch[$index].batchList.length>1" hm-tap="deleteNew($index)">删除</div>
+            <div class="add-new-item" ng-click="addNewPici($index)">添加新批次</div>
+
+        </div>
+        <ul class="list-btn">
+            <li class="submit-deliver" hm-tap="submit()">提交发货</li>
+            <li class="cancel-deliver">取消</li>
+        </ul>
+    </div>
+</body>
+</html>

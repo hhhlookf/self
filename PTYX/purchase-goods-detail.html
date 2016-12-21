@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <title>请购流程-商品明细</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <link rel="stylesheet" href="assets/css/tb-submit/order-detail.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/purchase/purchase-goods-detail.js"></script>
+</head>
+<body ng-controller="PurchaseGoodsDetail">
+
+<div class="card">
+    <div class="card-body">
+        <div class="info-list">
+            <div class="info">
+                <div class="info-title">明细代号</div>
+                <div class="info-desc">{{itemInfo.code}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">采购目录</div>
+                <div class="info-desc">{{itemInfo.cate}}</div>
+            </div>
+            <div class="info" ng-if="data.saleMan">
+                <div class="info-title">科　　室</div>
+                <div class="info-desc">{{itemInfo.dept}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">商品名称</div>
+                <div class="info-desc">{{itemInfo.goodsName}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">请购数量</div>
+                <div class="info-desc">{{itemInfo.count}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">需求日期</div>
+                <div class="info-desc">{{itemInfo.reqData}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">需求说明</div>
+                <div class="info-desc">{{itemInfo.reqNote}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">备　　注</div>
+                <div class="info-desc">{{itemInfo.remark}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-head">
+        <h2 class="card-hd-title">分配明细</h2>
+    </div>
+    <div class="card-body item-bill">
+        <div class="item-list">
+            <a ng-repeat="item in itemInfo.items" href="javascript:void(0)" class="item item-link" style="background: none;">
+                <div class="item-info">
+                    <div class="item-info-name">采购计划</div>
+                    <div class="item-info-desc">{{item.name}}</div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-name">分 配 量</div>
+                    <div class="item-info-name">{{item.num}}</div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-name">需求日期</div>
+                    <div class="item-info-desc">{{item.reqDate}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

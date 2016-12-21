@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <title>请购流程-采购目录确认</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <link rel="stylesheet" href="assets/css/purchase/purchase-catalog-confirm.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/directives/natural-number.js"></script>
+    <script src="assets/js/directives/positive-number.js"></script>
+    <script src="assets/js/purchase/purchase-catalog-confirm.js"></script>
+</head>
+<body ng-controller="PurchaseConfirm">
+
+<div class="card" ng-repeat="data in catalogData track by data.id">
+    <div class="card-body">
+        <div class="info-list">
+            <div class="info">
+                <div class="info-title">目录名称</div>
+                <div class="info-desc">{{data.name}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">规格单位</div>
+                <div class="info-desc">{{data.dimension}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">科　　室</div>
+                <div class="info-desc">{{data.dept}}</div>
+            </div>
+            <div class="info">
+                <div class="info-title">分　　类</div>
+                <div class="info-desc" style="color:#2CBCAD;">{{data.type}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="info-list info-put-in">
+            <div class="info">
+                <div class="info-title">采购数量</div>
+                <input positive-number type="number" ng-model="submitData[$index].num">
+            </div>
+            <div class="info">
+                <div class="info-title">需求时间</div>
+                <input hm-tap="setNeedTime($index)" readonly type="text" class="rili" ng-model="submitData[$index].reqDate | date: 'yyyy-MM-dd'">
+            </div>
+            <div class="info" hm-tap="goChoose(data.id, $index)">
+                <div class="info-title">推荐商品</div>
+                <input type="text" class="tuij" readonly ng-model="submitData[$index].goodsName">
+            </div>
+            <div class="info">
+                <div class="info-title">备　　注</div>
+                <input type="text" ng-model="submitData[$index].remark">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+body, html {
+  background: #fff; }
+
+.note {
+  padding: 0 0.92593rem;
+  margin-top: 0.74074rem;
+  font-size: 1.03704rem;
+  color: #808080;
+  line-height: 1.33333rem; }
+  .note em {
+    margin: 0 0.37037rem;
+    color: #FE5534; }

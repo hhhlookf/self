@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <title>待发货-填写商品清单</title>
+    <link rel="stylesheet" href="assets/css/tb-deliver/tb-deliver-write.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-deliver/tb-deliver-write-goods.js"></script>
+    <script src="assets/js/directives/natural-number.js"></script>
+</head>
+<body ng-controller="tbDeliverWriteGoods">
+<div class="tb-deliver-write-goods">
+    <div class="goods" ng-repeat="goods in thisOrderGoods">
+        <h2 class="name">{{goods.goodsName}}</h2>
+        <div class="record">
+            <span class="left">规格</span>
+            <div class="right">{{goods.dimension}}</div>
+        </div>
+        <div class="record">
+            <span class="left">应发数量</span>
+            <span class="right">{{goods.orderQty}} 件</span>
+        </div>
+        <div class="record">
+            <span class="left">已发数量</span>
+            <span class="right">{{goods.totalDeliveryQty}} 件</span>
+        </div>
+        <div class="record include">
+            <span class="left">生产批号</span>
+            <input type="text" ng-model="subInfo[$index].productionNo">
+        </div>
+        <div class="record include">
+            <span class="left">发货数量</span>
+            <input type="text" ng-blur="blur()" natural-number ng-model="goods.sendCount">
+        </div>
+        <div class="record include">
+            <span class="left">生产日期</span>
+            <span class="date" hm-tap="getDate()">{{subInfo[$index].productionTime|date: "yyyy-MM-dd"}}</span>
+        </div>
+        <div class="record include">
+            <span class="left">有效期</span>
+            <input type="number" natural-number placeholder="有效期以月份为单位" ng-model="subInfo[$index].validMonth">
+        </div>
+    </div>
+</div>
+</body>
+</html>

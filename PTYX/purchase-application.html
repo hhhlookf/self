@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <title>请购流程-申请采购</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/purchase/purchase-application.js"></script>
+</head>
+<body ng-controller="PurchaseApplication">
+
+<ul class="item-list-radio">
+    <li ng-repeat="data in applicationData">
+        <div class="left" style="position: relative">
+            <input  ng-click="choose($index)"
+                    type="checkbox"
+                    name="item"
+                    class="item-radio" style="position: absolute;top:50%;margin-top:-0.63rem;">
+        </div>
+        <div class="right item">
+            <div class="item-info">
+                <div class="item-info-name">目录名称</div>
+                <div class="item-info-desc">{{data.name}}</div>
+            </div>
+            <div class="item-info">
+                <div class="item-info-name">规格单位</div>
+                <div class="item-info-desc">{{data.dimension}}</div>
+            </div>
+            <div class="item-info">
+                <div class="item-info-name">科　　室</div>
+                <div class="item-info-desc">{{data.dept}}</div>
+            </div>
+            <div class="item-info">
+                <div class="item-info-name">分　　类</div>
+                <div class="item-info-desc" style="color:#2CBCAD">{{data.type}}</div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+</body>
+</html>

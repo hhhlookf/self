@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html ng-app="cgmall-detail">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <title>详情页</title>
+    <link rel="stylesheet" href="assets/css/exs/exs.css">
+    <link rel="stylesheet" href="assets/css/lib/jquery.bxslider.css">
+</head>
+<body ng-controller="ExsDetail" ng-cloak>
+    <div class="cgmall-exs-detail-wrapper">
+        <ul class="banner bxslider">
+            <li hm-tap="showImgReview()" ng-repeat="item in imageItems">
+                <img src="{{item}}" alt="">
+            </li>
+        </ul>
+        <div class="cgmall-imgloop-index clearfix">
+            <span>1</span>
+            <span>/</span>
+            <span></span>
+        </div>
+        <div class="wrapper">
+            <div class="top">
+                <div class="title clearfix">
+                    <span>包邮</span>
+                    <h1>{{ goods.name }}</h1>
+                </div>
+                <ul class="msg-list">
+                    <li>
+                        <span>最小起订量</span>
+                        <strong>
+                            {{ goods.minPurchaseNum }}
+                        </strong>
+                    </li>
+                    <li>
+                        <span>配送周期</span>
+                        <strong>
+                            7天
+                        </strong>
+                    </li>
+                    <li>
+                        <span>规格</span>
+                        <div class="spec clearfix">
+                            <section class="active">{{ goods.dimension }}</section>
+                            <!--<section>Voluson S6</section>-->
+                        </div>
+                    </li>
+                    <li>
+                        <span>单价</span>
+                        <strong>
+                            ￥{{ goods.salePrice }}
+                        </strong>
+                    </li>
+                    <li class="qty">
+                        <span>数量</span>
+                        <section class="count clearfix">
+                            <div hm-tap="reduce()">
+                                <img src="assets/images/exs/goodsInfo_reduce.png" alt="" class="reduce">
+                            </div>
+
+                            <div>
+                                <input type="text" ng-model="count">
+                            </div>
+                            <div hm-tap="plus()">
+                                <img src="assets/images/exs/goodsInfo_plus.png" alt="" class="plus">
+                            </div>
+                        </section>
+                    </li>
+                </ul>
+            </div>
+            <div class="info">
+                <h2>
+                    商品基本信息
+                    <div></div>
+                </h2>
+                <ul class="msg-list">
+                    <li>
+                        <span>生产商</span>
+                        <strong>
+                            {{ goods.manufactor }}
+                        </strong>
+                    </li>
+                    <li>
+                        <span>供应商</span>
+                        <strong>
+                            {{ goods.company }}
+                        </strong>
+                    </li>
+                    <li>
+                        <span>品牌</span>
+                        <strong>
+                            GSDDFDREFEFEFE
+                        </strong>
+                    </li>
+                </ul>
+            </div>
+            <!--评价-->
+            <!--<div class="info">-->
+                <!--<h2>-->
+                    <!--评价-->
+                    <!--<div></div>-->
+                    <!--<section class="assess">-->
+                        <!--共300条评价-->
+                    <!--</section>-->
+                <!--</h2>-->
+                <!--<ul class="msg-list">-->
+                    <!--<li>-->
+
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--THE END-->
+            <div class="info imginfo">
+                <h2>
+                    图文详情
+                    <div></div>
+                </h2>
+                <div ng-bind-html="goodsDetail" class="goods-detil"></div>
+            </div>
+        </div>
+    </div>
+    <div class="cgmall-exs-detail-btn clearfix">
+        <div class="clearfix">
+
+            <div class="yijia-collection" hm-tap="chat()">
+                <img src="assets/images/exs/service.png" alt="">
+                <!--<img src="assets/images/exs/service_active.png" alt="" ng-switch-when="true">-->
+                <p>客服</p>
+            </div>
+            <div class="yijia-collection" hm-tap="addYijia()" ng-show="ifBargain">
+                <img src="assets/images/exs/yijia.png" alt="">
+                <p>议价</p>
+            </div>
+            <div class="collection-select" ng-switch on="ifCollected">
+                <div class="collection" hm-tap="addCollect($event)" ng-switch-default>
+                    <img src="assets/images/exs/collection.png" alt="">
+                    <p>收藏</p>
+                </div>
+                <div class="collection" ng-switch-when="1">
+                    <img src="assets/images/exs/collection_active.png" alt="">
+                    <p>收藏</p>
+                </div>
+            </div>
+            <div class="yijia-collection" hm-tap="addCatalog()">
+                <img src="assets/images/exs/catalog.png" alt="">
+                <p>目录</p>
+            </div>
+            <div class="addColl-box">
+                <div class="addColl" ng-show="ifBargain" hm-tap="addShop(count, qwprice, remarks);">
+                    加入购物车
+                </div>
+                <!--没有目录按钮得情况-->
+                <div class="addColl-long" ng-show="!ifBargain" hm-tap="addShop(count, qwprice, remarks);">
+                    加入购物车
+                </div>
+            </div>
+
+            <!--<div class="botton btn-1" hm-tap="addYijia()">-->
+                <!--议价-->
+            <!--</div>-->
+            <!--<div class="botton btn-2" hm-tap="addList(count, qwprice, remarks)">-->
+                <!--加入清单-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--目录-->
+    <div class="cgmall-shoucang" ng-class="{catalogPop: isCatalog}">
+        <h2>
+            目录
+        </h2>
+        <div class="box">
+            <p>
+                选择目录
+            </p>
+            <div>
+               <!--<span ng-init="mycatalogs.name={{catalogname[0].name}}">-->
+                   <!--{{mycatalogs.name}}-->
+               <!--</span> -->
+                <span>
+                   {{mycatalogs.name}}
+               </span>
+                <select name="" id="" ng-options="item.name for item in catalogname" ng-model="mycatalogs">
+
+                </select>
+                <img src="assets/images/exs/exs-down.png" alt="">
+            </div>
+
+        </div>
+
+        <div class="box" ng-show="ifBargain">
+            <p>
+                议价
+            </p>
+            <div>
+                <input type="text" placeholder="输入价格" ng-model="cataPrice">
+            </div>
+        </div>
+
+        <div class="box">
+            <p>
+                商品备注
+            </p>
+            <div>
+                <input type="text" placeholder="输入备注" ng-model="catalogTxt">
+            </div>
+        </div>
+
+        <div class="btn clearfix">
+            <button hm-tap="cancelCatalog();" style="background: #f1f1f1;color: #808080;">
+                取消
+            </button>
+            <button hm-tap="confirmCatalog (mycatalogs.name, cataPrice, catalogTxt)" style="background: #2cbcad;">
+                保存
+            </button>
+        </div>
+    </div>
+
+    <div class="cgmall-shoucang" ng-class="{shoucangPop: isShoucang}">
+        <h2>
+            收藏
+        </h2>
+        <div class="box">
+            <p>
+                选择要添加的文件夹
+            </p>
+            <div>
+               <span ng-init="mycollections.name='我的收藏'">
+                   {{mycollections.name}}
+               </span>
+                <select name="" id="" ng-options="item.name for item in items" ng-model="mycollections">
+
+                </select>
+                <img src="assets/images/exs/exs-down.png" alt="">
+            </div>
+
+        </div>
+        <div class="box">
+            <p>
+                商品名称
+            </p>
+            <div>
+                <input type="text" placeholder="输入商品名称" ng-model="goodsName">
+            </div>
+        </div>
+        <div class="box">
+            <p>
+                商品规格
+            </p>
+            <div>
+                <input type="text" placeholder="输入商品规格" ng-model="goodsSpec">
+            </div>
+        </div>
+        <div class="box">
+            <p>
+                填写商品编码
+            </p>
+            <div>
+                <input type="text" placeholder="请填写商品编码" ng-model="goodsCode">
+            </div>
+        </div>
+        <div class="box">
+            <p>
+                备注
+            </p>
+            <div>
+                <input type="text" placeholder="输入备注" ng-model="goodsTxt">
+            </div>
+        </div>
+        <div class="btn clearfix">
+            <button hm-tap="cancelCollection();">
+                取消
+            </button>
+            <button hm-tap="confirmCollection(mycollections.name, goodsName, goodsCode, goodsSpec, goodsTxt)">
+                提交
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <!--议价-->
+    <div class="cgmall-addcollection" ng-class="{collectionPop: isCollection}">
+        <h2>
+            加入购物清单
+        </h2>
+        <div class="box">
+            <div>
+                <input type="text" placeholder="请输入采购数量" ng-model="count">
+            </div>
+        </div>
+        <div class="box">
+            <div>
+                <input type="text" placeholder="请输入期望价格" ng-model="qwprice">
+            </div>
+        </div>
+        <div class="box-textarea">
+            <div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="请输入议价备注" ng-model="remarks"></textarea>
+            </div>
+        </div>
+        <p class="tel">
+            建议提前与供应商沟通，供应商电话 <a href="tel:13345678909">13345678909</a>
+        </p>
+        <div class="btn clearfix">
+            <button hm-tap="cancelYijia();">
+                取消
+            </button>
+            <button hm-tap="confirmYijia(count, qwprice, remarks)">
+                确定
+            </button>
+        </div>
+    </div>
+    <div class="cgmall-exs-shadow" ng-show="isShadow"></div>
+
+    <!--image review-->
+    <!--<div class="cgmall-exs-blackbg" hm-tap="closeReviewImg();" ng-show="ifShowReview">-->
+        <!--<ul class="banner" bx-slider-review id="reviewimg">-->
+            <!--<li>-->
+                <!--<img src="assets/images/exs/collection.png" alt="">-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<img src="assets/images/exs/collection_active.png" alt="">-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<img src="assets/images/exs/exs-close.png" alt="">-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/angular-sanitize.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="assets/js/lib/jquery.bxslider.min.js"></script>
+    <script src="assets/js/exs/exs-detail.js"></script>
+    <script>
+        window.setTimeout(function () {
+            $('.bxslider').bxSlider({
+                onSliderLoad: function(currentIndex) {
+                    $('.bx-wrapper').css({
+                        'margin': 0,
+                        'margin-bottom': 0.74 + 'rem'
+                    });
+                    $('.bx-pager').hide();
+
+                    var len = $('.bxslider li').length - 2;
+                    $('.cgmall-imgloop-index span').eq(2).text(len);
+                },
+                onSlideAfter: function($slideElement, oldIndex, newIndex) {
+                    $('.cgmall-imgloop-index span').eq(0).text(newIndex+1);
+                }
+            })
+        }, 500)
+
+    </script>
+</body>
+</html>

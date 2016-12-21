@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>抽奖活动</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="assets/css/luck-draw-activity/luck-draw-activity.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/angular-sanitize.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+  </head>
+  <body ng-controller="LuckDraw" ng-cloak id="body">
+    <div class="activity" id="activity">
+        <div class="backBtn" hm-tap="backToPrev()"></div>
+      <div class="top"></div>
+      <div class="banner"></div>
+      <div class="luck-draw">
+        <div class="pointer" hm-tap="start()" ng-class="{disabled:ifDisabled}"></div>
+        <div class="rotate" ng-class="{start:ifRotate}"></div>
+      </div>
+      <div class="link">
+        <a hm-tap="seeMyRed()">我的支付宝红包</a>
+        <a hm-tap="seeMyJp()">查看我的奖品</a>
+      </div>
+      <div class="intro">
+        <div class="tit">抽奖说明</div>
+        <div class="con">
+          <h3>一、抽奖规则</h3>
+          <p><em>1、</em><span>下载“普天药械2.0”APP并完成注册；</span></p>
+          <p><em>2、</em><span>打开APP进入抽奖页面，参与抽奖活动；</span></p>
+          <p><em>3、</em><span>如未登录，需完成注册并登录后方可参与抽奖，每个用户只能抽奖一次；</span></p>
+          <p><em>4、</em><span>本次活动实物奖品均由京东商城代发；</span></p>
+          <p><em>5、</em><span>活动仅限2016年11月11日当天（8:00~24:00）；</span></p>
+          <p><em>6、</em><span>本次活动最终解释权归主办方普天药械网所有。</span></p>
+          <h3>二、奖品设置</h3>
+          <p>特等奖：苹果(Apple) iPhone 7</p>
+          <p>一等奖：小米平板 2</p>
+          <p>二等奖：卡西欧手表男</p>
+          <p>三等奖：折叠自行车</p>
+          <p>四等奖： 小米移动电源10000mAh</p>
+          <h3>三、发货时间</h3>
+          <p>以京东商城发货时间为准。</p>
+        </div>
+      </div>
+      <div class="mask" id="result" ng-show="ifPop">
+        <div class="pop">
+          <div class="tit">{{shoot}}</div>
+          <div class="con">
+            <h3>{{shootTit}}</h3>
+            <div class="jiang">{{shootCon}}</div>
+          </div>
+          <div class="close" hm-tap="closePop()">关闭窗口</div>
+        </div>
+      </div>
+    </div>
+    <style id="style"></style>
+    <script>
+      window.onload = function () {
+        var myHTML = document.querySelector("html");
+        var myWidth = myHTML.clientWidth;
+        var activity = document.getElementById('activity');
+        var body = document.getElementById('body');
+
+        var value = 23 * (3 * myWidth / 80);
+        body.scrollTop = value;
+      }
+    </script>
+    <script src="assets/js/luck-draw-activity/luck-draw-activity.js"></script>
+  </body>
+</html>

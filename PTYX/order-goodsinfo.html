@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>待发货-商品详情</title>
+    <link rel="stylesheet" href="assets/css/goods-detail/goods-detail.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/orderManager/order-goodsinfo.js"></script>
+</head>
+<body ng-controller="tbDeliverGdetail" ng-cloak>
+<!--议价时字段-->
+<div class="tb-deliver-gdetail">
+    <ul class="detail-con">
+        <li class="goods-name">{{currentGoodData.goodsName}}</li>
+        <li>
+            <span class="left-side">品牌</span>
+            <span class="right-side">{{currentGoodData.brand}}</span>
+        </li>
+        <li>
+            <span class="left-side">厂家</span>
+            <span class="right-side">{{currentGoodData.manu}}</span>
+        </li>
+        <li>
+            <span class="left-side">规格</span>
+            <span class="right-side">{{currentGoodData.dimension}}</span>
+        </li>
+        <li>
+            <span class="left-side">价格</span>
+            <span class="right-side">&yen; {{currentGoodData.salePrice}}</span>
+        </li>
+        <li>
+            <span class="left-side">数量</span>
+            <span class="right-side">{{currentGoodData.orderQty}}</span>
+        </li>
+        <li ng-if="currentGoodData.bargainPrice">
+            <span class="left-side">期望价格</span>
+            <span class="right-side">&yen; {{currentGoodData.bargainPrice}}</span>
+        </li>
+        <li ng-if="currentGoodData.changeToPrice">
+            <span class="left-side">改后价格</span>
+            <span class="right-side">&yen; {{currentGoodData.changeToPrice}}</span>
+        </li>
+        <li ng-if="currentGoodData.bargainNotes">
+            <span class="left-side">议价备注</span>
+            <span class="right-side">{{currentGoodData.bargainNotes}}</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

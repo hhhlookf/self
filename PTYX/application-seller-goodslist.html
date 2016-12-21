@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <title>交收申请订单详情-商品列表（卖家）</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/application/application-seller-goodslist.js"></script>
+</head>
+<body ng-cloak ng-controller="appsellerGoodsList">
+
+<div class="card card-inline" hm-tap="getGoodsDetail()" ng-repeat="goods in goodsListData track by goods.id">
+    <div class="card-body">
+        <a href="javascript:void(0)"class="item item-link">
+            <h3 class="item-name">{{goods.goodsName}}</h3>
+            <div class="item-info">
+                <div class="item-info-name">规格</div>
+                <div class="item-info-desc">{{goods.dimension}}</div>
+            </div>
+            <div class="item-info">
+                <div class="item-info-name">采购数量</div>
+                <div class="item-info-desc">{{goods.orderQty}}</div>
+            </div>
+            <div class="item-info">
+                <div class="item-info-name">单价</div>
+                <div class="item-info-desc price">&yen;{{goods.price}}</div>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

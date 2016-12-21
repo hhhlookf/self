@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>商城首页</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="assets/css/index/index.min.css">
+    <link rel="stylesheet" href="assets/css/common/topbar.min.css">
+    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/angular-sanitize.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+<body ng-controller="Index as index" ng-cloak>
+    <div class="top-bar">
+        <img src="assets/images/common/p.png" alt="">
+        <img src="assets/images/common/input.png" alt="">
+        <img src="assets/images/common/x.png" alt="">
+    </div>
+    <div class="index">
+        <div class="banner focus" id="focus" touch-slider>
+            <div class="hd">
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <li ng-repeat="item in index.items">
+                        <a href="javascript:;">
+                            <img src="assets/images/banner/main.top/{{$index + 1}}.png" alt="活动图">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="theme-venue">
+            <div class="tit">
+                <img src="assets/images/index/index-ztg.png">
+                <span>主题馆</span>
+            </div>
+            <div class="con clearfix">
+                <a class="short fl c1" hm-tap="index.linkToTheme(0)">
+                    <img class="img1" src="assets/images/theme/theme.drug.png">
+                    <span class="venue-name">{{ index.themes[0].title }}</span>
+                    <span class="go-btn t1">GO<em>></em></span>
+                </a>
+                <a class="long fr c2" hm-tap="index.linkToTheme(1)">
+                    <img class="img2" src="assets/images/theme/theme.machine.png">
+                    <span class="venue-name">{{ index.themes[1].title }}</span>
+                    <span class="go-btn t2">GO<em>></em></span>
+                </a>
+                <a class="long fl c3" hm-tap="index.linkToTheme(2)">
+                    <img class="img3" src="assets/images/theme/theme.material.png">
+                    <span class="venue-name">{{ index.themes[2].title }}</span>
+                    <span class="go-btn t3">GO<em>></em></span>
+                </a>
+                <a class="short fr c4" hm-tap="index.linkToTheme(3)">
+                    <img class="img4" src="assets/images/theme/theme.man.png">
+                    <span class="venue-name">{{ index.themes[3].title }}</span>
+                    <span class="go-btn t4">GO<em>></em></span>
+                </a>
+                <a class="short fl c5" hm-tap="index.linkToTheme(4)">
+                    <img class="img5" src="assets/images/theme/theme.woman.png">
+                    <span class="venue-name">{{ index.themes[4].title }}</span>
+                    <span class="go-btn t5">GO<em>></em></span>
+                </a>
+                <a class="long fr c6" hm-tap="index.linkToTheme(5)">
+                    <img class="img6" src="assets/images/theme/theme.pretty.png">
+                    <span class="venue-name">{{ index.themes[5].title }}</span>
+                    <span class="go-btn t6">GO<em>></em></span>
+                </a>
+            </div>
+        </div>
+        <div class="commodity-street">
+            <div class="tit">
+                <img src="assets/images/index/index-spj.png">
+                <span>商品街</span>
+            </div>
+            <ul class="sub-tit">
+                <li ng-repeat="item in index.tabItem" hm-tap="index.tab($index)">
+                    <span ng-class="{'select': index.ifSelect == $index }">{{ item.title }}</span>
+                </li>
+            </ul>
+            <div class="con clearfix" ng-show="index.ifSelect == 0">
+                <a ng-repeat="item in index.infoitems_0" hm-tap="index.linkToDetail(item.goodsId)" >
+
+                    <img ng-src="assets/images/index/gooddemo.png" alt="商品图" ng-show="!item.imageUrl">
+                    <img ng-src="{{ item.imageUrl }}" alt="商品图" ng-show="item.imageUrl">
+                    <span>{{ item.goodsName }}</span>
+                </a>
+            </div>
+            <div class="con clearfix" ng-show="index.ifSelect == 1">
+                <a ng-repeat="item in index.infoitems_1" hm-tap="index.linkToDetail(item.goodsId)">
+                    <img ng-src="assets/images/index/gooddemo.png" alt="商品图" ng-show="!item.imageUrl">
+                    <img ng-src="{{ item.imageUrl }}" alt="商品图" ng-show="item.imageUrl">
+                    <span>{{ item.goodsName }}</span>
+                </a>
+            </div>
+            <div class="con clearfix" ng-show="index.ifSelect == 2">
+                <a ng-repeat="item in index.infoitems_2" hm-tap="index.linkToDetail(item.goodsId)">
+                    <img ng-src="assets/images/index/gooddemo.png" alt="商品图" ng-show="!item.imageUrl">
+                    <img ng-src="{{ item.imageUrl }}" alt="商品图" ng-show="item.imageUrl">
+                    <span>{{ item.goodsName }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <a class="active">首页</a>
+        <a>分类</a>
+        <a><img src="assets/images/nav/pur.png">采购通</a>
+        <a>清单</a>
+        <a href="my.html">我的</a>
+    </nav>
+    <script src="assets/js/index/index.js"></script>
+    <script src="assets/js/lib/TouchSlide.1.1.js"></script>
+    <script>
+        setTimeout(function() {
+            TouchSlide({
+                slideCell:"#focus",
+                titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell:".bd ul",
+                effect:"left",
+                autoPlay:true,//自动播放
+                autoPage:true, //自动分页
+                switchLoad:"_src" //切换加载，真实图片路径为"_src"
+            });
+        }, 800)
+
+    </script>
+</body>
+</html>

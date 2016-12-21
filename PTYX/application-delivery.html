@@ -1,0 +1,143 @@
+<!doctype html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>交收申请--卖家</title>
+    <link rel="stylesheet" href="assets/css/application/application-handle.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/application/application-delivery.js"></script>
+</head>
+<body ng-controller="applicationDeliver">
+<div class="application-handle">
+    <ul class="top-block">
+        <li>
+            <span class="left-side">订单号</span>
+            <span class="right-side">{{thisOrderInfo.orderNo}}</span>
+        </li>
+        <li>
+            <span class="left-side">订单金额</span>
+            <span class="right-side color">&yen; {{thisOrderInfo.totalAmount}}</span>
+        </li>
+        <li>
+            <span class="left-side" style="width:9rem;">已冲红／退款金额</span>
+            <span class="right-side" style="width:auto">&yen; {{thisOrderInfo.totalRedAmount}}</span>
+        </li>
+        <li>
+            <span class="left-side">已发货金额</span>
+            <span class="right-side">&yen; {{thisOrderInfo.sendMoney}}</span>
+        </li>
+        <li>
+            <span class="left-side">剩余金额</span>
+            <span class="right-side">&yen; {{thisOrderInfo.leftMoney}}</span>
+        </li>
+    </ul>
+    <div class="item-block">
+        <div class="tit">
+            <span class="left-name">结算账户</span>
+        </div>
+        <ul class="item-block-con">
+            <li>
+                <span class="left-side line">企业帐户</span>
+                <select class="right-side">
+                    <option value="" ng-repeat="item in thisOrderInfo.accountList">{{item.accountDetail}}</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div class="item-block">
+        <div class="tit">
+            <span class="left-name">交货日期</span>
+        </div>
+        <ul class="item-block-con">
+            <li>
+                <span class="left-side line">交货日期</span>
+                <span class="right-side date" hm-tap="getDate()">{{jhTime|date: "yyyy-MM-dd"}}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="item-block">
+        <div class="tit">
+            <span class="left-name">结算记录</span>
+        </div>
+        <ul class="item-block-con" hm-tap="toDetail($index)" ng-repeat="record in thisOrderInfo.balanceList">
+            <li>
+                <span class="left-side">结算单号</span>
+                <span class="right-side">{{record.settlementNo}}</span>
+            </li>
+            <li>
+                <span class="left-side">应付金额</span>
+                <span class="right-side color">&yen; {{record.payableAmount}}</span>
+            </li>
+            <li>
+                <span class="left-side">拟冲红金额</span>
+                <span class="right-side">&yen; {{record.planRedAmount}}</span>
+            </li>
+            <li>
+                <span class="left-side">状态</span>
+                <span class="right-side color">{{
+                    record.status == '1' ? '待提交'
+                    : record.status == '2' ? '待支付（可冲红）'
+                    : record.status == '3' ? '支付中'
+                    : record.status == '4' ? '已支付'
+                    : record.status == '6' ? '已作废'
+                    : record.status == '9' ? '未支付（可冲红）':''}}</span>
+                    </li>
+            <li class="record"></li>
+        </ul>
+    </div>
+    <div class="item-block">
+        <div class="tit">
+            <span class="left-name">发货明细</span>
+        </div>
+        <ul class="item-block-con" ng-repeat="goods in thisOrderInfo.deliveryList" hm-tap="getGoodsDetail()">
+            <li>
+                <span class="left-side">商品名称</span>
+                <span class="right-side">{{goods.goodsName}}</span>
+            </li>
+            <li>
+                <span class="left-side">规格</span>
+                <span class="right-side color">{{goods.dimension}}</span>
+            </li>
+            <li>
+                <span class="left-side">数量</span>
+                <span class="right-side color">{{goods.deliveryQty}}</span>
+            </li>
+            <li>
+                <span class="left-side">单价</span>
+                <span class="right-side">&yen; {{goods.salePrice}}</span>
+            </li>
+            <li class="record"></li>
+        </ul>
+    </div>
+    <div class="item-block">
+        <div class="tit">
+            <span class="left-name">凭证上传<span style="color: #808080;font-size: 0.88rem;">（最多可上传5张）</span></span>
+        </div>
+        <div class="item-block-con scpz">
+            <div class="scwrap">
+                <div class="small-tit">交收凭证</div>
+                <img ng-src="" alt="上传凭证">
+                <div class="add-pz" hm-tap="upload()"></div>
+            </div>
+            <div class="scwrap">
+                <div class="small-tit">发票凭证</div>
+                <img ng-if="vm.photoUrl" ng-src="vm.photoUrl" alt="上传凭证">
+                <div class="add-pz" hm-tap="upload()"></div>
+            </div>
+        </div>
+    </div>
+    <div class="btn">
+        <div class="cancel" hm-tap="cancelApp()">取消</div>
+        <div class="agree">提交申请</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>订单管理-订单详情</title>
+    <link rel="stylesheet" href="assets/css/tb-received/tb-received.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/orderManager/order.js"></script>
+</head>
+<body ng-controller="Order as order" ng-cloak>
+<div class="tb-received-detil-wrapper">
+    <div class="order-info">
+        <table>
+            <tr>
+                <td>
+                        <span>
+                            订单代码
+                        </span>
+                </td>
+                <td class="">
+                    <p class="textOverflow">
+                        {{ order.data.orderNo }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <span>
+                            收货人
+                        </span>
+                </td>
+                <td>
+                    <p class="textOverflow">
+                        {{ order.data.receiverName }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <span>
+                            联系电话
+                        </span>
+                </td>
+                <td>
+                    {{ order.data.receiverTel }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <span>
+                            收货地址
+                        </span>
+                </td>
+                <td>
+                    <p>
+                        {{ order.data.receiverAddress }}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <span>
+                            订单金额
+                        </span>
+                </td>
+                <td>
+                    <p class="price textOverflow">
+                        {{ order.data.totalAmount }}
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="list">
+        <section class="title">
+            <span>货物清单</span>
+            <strong hm-tap="order.goodsList()">
+                全部商品({{ order.data.goodsList.length }})
+            </strong>
+        </section>
+        <ul>
+            <li hm-tap="order.linkToList(0)">
+                <a href="javascript:;">
+                    <h3 class="textOverflow">
+                        {{ order.data.goodsList[0].goodsName }}
+                    </h3>
+                    <table>
+                        <tr>
+                            <td>
+                                规格
+                            </td>
+                            <td>
+                                {{ order.data.goodsList[0].dimension }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                采购数量
+                            </td>
+                            <td>
+                                {{ order.data.goodsList[0].orderQty }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                单价
+                            </td>
+                            <td>
+                                    <span>
+                                        ￥{{ order.data.goodsList[0].salePrice }}
+                                    </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="tag-choose" ng-switch="{{ order.data.goodsList[0].changeType }}">
+                        <i class="tag tag-shanchu" ng-switch-when="1">
+                            删除
+                        </i>
+                        <i class="tag tag-xiugai" ng-switch-when="2">
+                            修改
+                        </i>
+                        <i class="tag tag-xinzeng" ng-switch-when="3">
+                            新增
+                        </i>
+                        <i class="tag tag-yijia" ng-switch-default>
+                            议价
+                        </i>
+                    </div>
+                    <i class="arrow">
+                        <img src="assets/images/tb-received/arrow.png" alt="">
+                    </i>
+                </a>
+            </li>
+            <li ng-show="order.data.goodsList.length > 1" hm-tap="order.linkToList(1)">
+                <a href="javascript:;">
+                    <h3 class="textOverflow">
+                        {{ order.data.goodsList[1].goodsName }}
+                    </h3>
+                    <table>
+                        <tr>
+                            <td>
+                                规格
+                            </td>
+                            <td>
+                                {{ order.data.goodsList[1].dimension }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                采购数量
+                            </td>
+                            <td>
+                                {{ order.data.goodsList[1].orderQty }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                单价
+                            </td>
+                            <td>
+                                    <span>
+                                        ￥{{ order.data.goodsList[1].salePrice }}
+                                    </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="tag-choose" ng-switch="{{ order.data.goodsList[1].changeType }}">
+                        <i class="tag tag-shanchu" ng-switch-when="1">
+                            删除
+                        </i>
+                        <i class="tag tag-xiugai" ng-switch-when="2">
+                            修改
+                        </i>
+                        <i class="tag tag-xinzeng" ng-switch-when="3">
+                            新增
+                        </i>
+                        <i class="tag tag-yijia" ng-switch-default>
+                            议价
+                        </i>
+                    </div>
+                    <i class="arrow">
+                        <img src="assets/images/tb-received/arrow.png" alt="">
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--<div class="account">-->
+        <!--<section class="title">-->
+            <!--<span>结算记录</span>-->
+        <!--</section>-->
+        <!--<div class="count-info">-->
+            <!--<table>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--结算单号-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--S909090909090-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--订单金额-->
+                    <!--</td>-->
+                    <!--<td class="price">-->
+                            <!--<span>-->
+                                <!--200-->
+                            <!--</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</table>-->
+        <!--</div>-->
+        <!--<div class="payment">-->
+                <!--<span>-->
+                    <!--付款方式-->
+                <!--</span>-->
+            <!--<strong>-->
+                <!--担保支付-->
+            <!--</strong>-->
+            <!--<img src="assets/images/tb-received/arrow.png" alt="">-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="sale-man">
+        <section class="title">
+                <span>
+                    结算记录
+                </span>
+        </section>
+        <div class="content" ng-repeat="item in order.data.balanceList">
+            <img src="assets/images/tb-received/arrow.png" alt="">
+            <table>
+                <tr>
+                    <td>
+                            <span>
+                                结算单号
+                            </span>
+                    </td>
+                    <td>
+                        <strong class="textOverflow">
+                            {{ item.settlementNo }}
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span>
+                                订单金额
+                            </span>
+                    </td>
+                    <td>
+                        <span class="textOverflow " style="color: #e37c59;">
+                            {{ item.accountAmount }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span class="">
+                                付款方式
+                            </span>
+                    </td>
+                    <td>
+                        <div ng-switch on="item.payType">
+                            <span ng-switch-when="1">
+                                担保支付
+                            </span>
+                            <span ng-switch-when="3">
+                                授信支付
+                            </span>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="sale-man">
+        <section class="title">
+                <span>
+                    发货记录
+                </span>
+        </section>
+        <div class="content" ng-repeat="item in order.data.deliverys">
+            <img src="assets/images/tb-received/arrow.png" alt="">
+            <table>
+                <tr>
+                    <td>
+                            <span>
+                                发货单号
+                            </span>
+                    </td>
+                    <td>
+                        <strong class="textOverflow">
+                            {{ item.deliveryNo }}
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span>
+                                发货人
+                            </span>
+                    </td>
+                    <td>
+                        <span class="textOverflow">
+                            {{ item.deliveryPerson }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span class="">
+                                联系电话
+                            </span>
+                    </td>
+                    <td>
+                        <span>
+                            {{ item.deliveryPersonTel }}
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="btn" ng-switch on="order.data.status">
+        <div class="status-1" ng-switch-when="1">
+            <span hm-tap="order.cancelOrder()">
+                取消订单
+            </span>
+            <span hm-tap="order.moreOrder()">
+                再来一单
+            </span>
+        </div>
+        <div class="status-1" ng-switch-when="3">
+            <span hm-tap="order.cancelOrder()">
+                取消订单
+            </span>
+            <span hm-tap="order.moreOrder()">
+                再来一单
+            </span>
+        </div>
+        <div class="status-1" ng-switch-when="11">
+            <span hm-tap="order.cancelOrder()">
+                取消订单
+            </span>
+            <span hm-tap="order.moreOrder()">
+                再来一单
+            </span>
+        </div>
+        <div class="status-2" ng-switch-default>
+            <span>
+                再来一单
+            </span>
+        </div>
+        <div class="status-3" ng-switch-when="2">
+            <span>
+                取消订单
+            </span>
+            <span>
+                撤回订单
+            </span>
+            <span>
+                再来一单
+            </span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

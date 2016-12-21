@@ -1,0 +1,285 @@
+html {
+  color: #000;
+  background: #f5f5f6;
+  font-family: sans-serif;
+  font-size: 27px; }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, strong, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif; }
+
+body {
+  background: #f5f5f6; }
+
+input {
+  border: none; }
+
+button {
+  border: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+a {
+  text-decoration: none;
+  color: #00c;
+  outline: none; }
+
+var, em, strong {
+  font-style: normal; }
+
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+  font-style: inherit;
+  font-weight: inherit; }
+
+del, ins {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6, b {
+  font-size: 100%;
+  font-weight: normal; }
+
+q:before, q:after {
+  content: ''; }
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+sup {
+  vertical-align: baseline; }
+
+sub {
+  vertical-align: baseline; }
+
+legend {
+  color: #000; }
+
+i {
+  font-style: normal; }
+
+input, button, textarea, select, optgroup, option {
+  outline: none; }
+
+input, button, textarea, select {
+  *font-size: 100%; }
+
+article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+  display: block; }
+
+/*body{-webkit-user-select:none;-webkit-text-size-adjust:none;}*/
+* {
+  -webkit-tap-highlight-color: transparent; }
+
+.clearfix:after {
+  content: "\200B";
+  display: block;
+  height: 0;
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+.textOverflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: transparent; }
+
+.mask {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); }
+  .mask .backBtn {
+    position: fixed;
+    z-index: 9000;
+    right: 0;
+    top: 20px;
+    width: 2.64286rem;
+    height: 2.64286rem;
+    background: url(../../images/luck-draw-activity/closeBtn.png);
+    background-size: 100% 100%; }
+
+.pop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; }
+
+.pop-k1 {
+  width: 19.92857rem;
+  height: 21.14286rem; }
+  .pop-k1 .top {
+    width: 19.92857rem;
+    height: 14.25rem;
+    background: url(../../images/activity-pop-red/pop-pan.png) no-repeat;
+    background-size: 100% 100%; }
+  .pop-k1 .bot {
+    width: 19.92857rem;
+    height: 6.85714rem;
+    background: #fff;
+    border-radius: 0 0 0.89286rem 0.89286rem; }
+    .pop-k1 .bot p {
+      text-align: center;
+      color: #888888;
+      font-size: 1rem;
+      line-height: 3.10714rem; }
+    .pop-k1 .bot a {
+      display: block;
+      width: 9.28571rem;
+      height: 2.64286rem;
+      margin: 0 auto;
+      background: #e51e21;
+      color: #fff;
+      line-height: 2.64286rem;
+      text-align: center;
+      border-radius: 0.46429rem; }
+  .pop-k1 .bot2 .btn-wrap {
+    position: relative; }
+    .pop-k1 .bot2 .btn-wrap:after {
+      position: absolute;
+      z-index: 1;
+      content: '';
+      display: block;
+      background: #dddddd;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      -webkit-transform-origin: 50% 0%;
+      transform-origin: 50% 0%;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5); }
+  .pop-k1 .bot2 .read {
+    position: relative;
+    color: #0ba95f; }
+    .pop-k1 .bot2 .read:after {
+      position: absolute;
+      z-index: 1;
+      content: '';
+      display: block;
+      background: #dddddd;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 1px;
+      -webkit-transform-origin: 100% 50%;
+      transform-origin: 100% 50%;
+      -webkit-transform: scaleX(0.5);
+      transform: scaleX(0.5); }
+  .pop-k1 .bot2 .read, .pop-k1 .bot2 .ignore {
+    width: 50%;
+    float: left;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 3.64286rem; }
+  .pop-k1 .close {
+    position: absolute;
+    top: 3rem;
+    right: 0.71429rem;
+    width: 1.17857rem;
+    height: 1.17857rem;
+    background: url(../../images/activity-pop-red/close.png) no-repeat;
+    background-size: 100% 100%; }
+
+.pop-k2 {
+  width: 17.71429rem;
+  height: 20.85714rem; }
+  .pop-k2 .top {
+    width: 17.71429rem;
+    height: 9.78571rem;
+    background: url(../../images/activity-pop-red/red-page.png) no-repeat;
+    background-size: 100% 100%; }
+  .pop-k2 .bot {
+    padding-bottom: 1.64286rem;
+    background: #ec2e22;
+    border-radius: 0 0 0.71429rem 0.71429rem; }
+    .pop-k2 .bot .text {
+      color: #fff1ad;
+      height: 6.60714rem;
+      text-align: center; }
+    .pop-k2 .bot .btn {
+      width: 10.25rem;
+      height: 2.78571rem;
+      background: #ffe56b;
+      margin: 0 auto;
+      color: #fe2828;
+      font-size: 1.07143rem;
+      font-weight: bold;
+      line-height: 2.78571rem;
+      text-align: center;
+      border-radius: 0.35714rem; }
+
+.red2 {
+  width: 17.71429rem;
+  height: 20.85714rem;
+  border-radius: 0.71429rem;
+  text-align: center; }
+  .red2 .top {
+    height: 12.53571rem;
+    padding-top: 1.53571rem;
+    background: #c4261c url(../../images/activity-pop-red/red2.jpg) 0 bottom no-repeat;
+    background-size: 17.67857rem 1.78571rem;
+    border-radius: 0.71429rem 0.71429rem 0 0;
+    box-sizing: border-box; }
+    .red2 .top .fi {
+      color: #fff1ad;
+      font-size: 1.71429rem; }
+    .red2 .top .se {
+      margin: 0.64286rem 0 1.21429rem;
+      color: #fff1ad;
+      font-size: 1.07143rem; }
+    .red2 .top .th {
+      display: inline-block;
+      max-width: 14.64286rem;
+      height: 1.96429rem;
+      padding: 0 0.75rem 0 3.75rem;
+      margin: 0 auto;
+      background: url(../../images/activity-pop-red/kouling.png) #951c14 no-repeat 0.71429rem 0;
+      background-size: 2.46429rem 2rem;
+      line-height: 1.96429rem;
+      border-radius: 0.28571rem;
+      color: #ffe56b;
+      box-sizing: border-box; }
+    .red2 .top .fo {
+      margin-top: 0.53571rem;
+      color: #8d1b14;
+      font-size: 0.85714rem; }
+  .red2 .bot {
+    height: 8.32143rem;
+    padding-top: 1.53571rem;
+    background: #ec2e22;
+    border-radius: 0 0 0.71429rem 0.71429rem;
+    box-sizing: border-box; }
+    .red2 .bot p {
+      color: #ffe56b;
+      font-size: 1rem; }
+    .red2 .bot .btn {
+      width: 10.17857rem;
+      height: 2.82143rem;
+      margin: 1.07143rem auto 0;
+      background: #ffe56b;
+      color: #fe2828;
+      font-weight: bold;
+      font-size: 1.07143rem;
+      line-height: 2.82143rem;
+      border-radius: 0.28571rem; }

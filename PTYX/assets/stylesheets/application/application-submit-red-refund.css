@@ -1,0 +1,142 @@
+html {
+  color: #000;
+  background: #f5f5f6;
+  font-family: sans-serif;
+  font-size: 27px; }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, strong, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif; }
+
+body {
+  background: #f5f5f6; }
+
+input {
+  border: none; }
+
+button {
+  border: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+a {
+  text-decoration: none;
+  color: #00c;
+  outline: none; }
+
+var, em, strong {
+  font-style: normal; }
+
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+  font-style: inherit;
+  font-weight: inherit; }
+
+del, ins {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6, b {
+  font-size: 100%;
+  font-weight: normal; }
+
+q:before, q:after {
+  content: ''; }
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+sup {
+  vertical-align: baseline; }
+
+sub {
+  vertical-align: baseline; }
+
+legend {
+  color: #000; }
+
+i {
+  font-style: normal; }
+
+input, button, textarea, select, optgroup, option {
+  outline: none; }
+
+input, button, textarea, select {
+  *font-size: 100%; }
+
+article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+  display: block; }
+
+/*body{-webkit-user-select:none;-webkit-text-size-adjust:none;}*/
+* {
+  -webkit-tap-highlight-color: transparent; }
+
+.clearfix:after {
+  content: "\200B";
+  display: block;
+  height: 0;
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+.textOverflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.canRedTotal {
+  height: 10.71429rem;
+  padding: 3.57143rem 0 0 1.42857rem;
+  background: #fafafa url(../../images/application-handle/page.png) center right no-repeat;
+  background-size: 13.21429rem 6.67857rem;
+  color: #808080;
+  box-sizing: border-box; }
+  .canRedTotal span {
+    font-size: 1.42857rem;
+    line-height: 4.28571rem;
+    color: #4b4b4b; }
+    .canRedTotal span em {
+      color: #df0722;
+      margin-right: 3.92857rem; }
+
+.fill {
+  position: relative;
+  padding-left: 1.42857rem; }
+  .fill .tit {
+    line-height: 3.46429rem;
+    font-size: 1.25rem; }
+  .fill input {
+    width: 24.21429rem;
+    height: 2.07143rem;
+    padding-left: 0.71429rem;
+    margin: 0 auto;
+    border: 1px solid rgba(189, 189, 189, 0.7);
+    -webkit-appearance: none;
+    border-radius: 0;
+    box-sizing: border-box; }
+  .fill span {
+    position: absolute;
+    right: 1.42857rem;
+    top: 3.92857rem;
+    color: #808080; }
+
+.btn {
+  width: 23.57143rem;
+  height: 2.67857rem;
+  margin: 17.85714rem auto 0;
+  background: #2cbcad;
+  color: #fff;
+  text-align: center;
+  line-height: 2.67857rem; }

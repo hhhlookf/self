@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>待接收-商品清单</title>
+    <link rel="stylesheet" href="assets/css/tb-received/tb-received.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-confirm/tb-confirm-goodslist.js"></script>
+</head>
+<body>
+<div class="tb-received-gt-wrapper" ng-controller="GoodsList as goodsList">
+    <ul class="list">
+        <!--公共样式类名为tag，.tag-yijia议价 .tag-shanchu删除 .tag-xinzeng新增 .tag-xiugai修改-->
+        <li ng-repeat="item in goodsList.info" hm-tap="goodsList.linkToGoodsInfo($index)">
+            <a href="javascript:;">
+                <h3 class="textOverflow">
+                    {{ item.goodsName }}
+                </h3>
+                <table>
+                    <tr>
+                        <td>
+                            规格
+                        </td>
+                        <td>
+                            {{ item.dimension }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            采购数量
+                        </td>
+                        <td>
+                            {{ item.orderQty }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            单价
+                        </td>
+                        <td>
+                            <span>
+                                ￥{{ item.salePrice }}
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="tag-choose" ng-switch="{{ item.changeType }}">
+                    <i class="tag tag-shanchu" ng-switch-when="1">
+                        删除
+                    </i>
+                    <i class="tag tag-xiugai" ng-switch-when="2">
+                        修改
+                    </i>
+                    <i class="tag tag-xinzeng" ng-switch-when="3">
+                        新增
+                    </i>
+                    <i class="tag tag-yijia" ng-switch-default>
+                        议价
+                    </i>
+                </div>
+                <i class="arrow">
+                    <img src="assets/images/tb-received/arrow.png" alt="">
+                </i>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

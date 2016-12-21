@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>待确认-订单详情</title>
+    <link rel="stylesheet" href="assets/css/tb-received/tb-received.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-confirm/tb-confirm-detail.js"></script>
+</head>
+<body ng-controller="Detail as detail" ng-cloak>
+    <div class="tb-confirm-detil-wrapper">
+        <div class="order-info">
+            <table>
+                <tr>
+                    <td>
+                        <span>
+                            订单代码
+                        </span>
+                    </td>
+                    <td class="">
+                        <p class="textOverflow">
+                            {{ detail.data.orderNo }}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span>
+                                收货人
+                            </span>
+                    </td>
+                    <td>
+                        <p class="textOverflow">
+                            XXXX
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span>
+                                联系电话
+                            </span>
+                    </td>
+                    <td>
+                        {{ detail.data.receiverTel }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span>
+                                收货地址
+                            </span>
+                    </td>
+                    <td>
+                        <p>
+                            {{ detail.data.receiverAddress }}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <span>
+                                订单金额
+                            </span>
+                    </td>
+                    <td>
+                        <p class="price textOverflow">
+                            {{ detail.data.totalAmount }}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="list">
+            <section class="title">
+                <span>货物清单</span>
+                <strong>
+                    全部商品({{ detail.data.goodsList.length }})
+                </strong>
+            </section>
+            <ul>
+                <li hm-tap="detail.linkToGoodsInfo(0);">
+                    <a href="javascript:;">
+                        <h3 class="textOverflow">
+                            {{ detail.data.goodsList[0].goodsName }}
+                        </h3>
+                        <table>
+                            <tr>
+                                <td>
+                                    规格
+                                </td>
+                                <td>
+                                    {{ detail.data.goodsList[0].dimension }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    采购数量
+                                </td>
+                                <td>
+                                    {{ detail.data.goodsList[0].orderQty }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    单价
+                                </td>
+                                <td>
+                                        <span>
+                                            ￥{{ detail.data.goodsList[0].price }}
+                                        </span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="tag-choose" ng-switch="detail.data.goodsList[0].changeType">
+                            <i class="tag tag-shanchu" ng-switch-when="1">
+                                删除
+                            </i>
+                            <i class="tag tag-xiugai" ng-switch-when="2">
+                                修改
+                            </i>
+                            <i class="tag tag-xinzeng" ng-switch-when="3">
+                                新增
+                            </i>
+                            <i class="tag tag-yijia" ng-switch-default>
+                                议价
+                            </i>
+                        </div>
+                        <i class="arrow">
+                            <img src="assets/images/tb-received/arrow.png" alt="">
+                        </i>
+                    </a>
+                </li>
+                <li hm-tap="detail.linkToGoodsInfo(1);"  ng-show="detail.data.goodsList.length >= 2">
+                    <a href="javascript:;">
+                        <h3 class="textOverflow">
+                            {{ detail.data.goodsList[1].goodsName }}
+                        </h3>
+                        <table>
+                            <tr>
+                                <td>
+                                    规格
+                                </td>
+                                <td>
+                                    {{ detail.data.goodsList[1].dimension }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    采购数量
+                                </td>
+                                <td>
+                                    {{ detail.data.goodsList[1].orderQty }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    单价
+                                </td>
+                                <td>
+                                        <span>
+                                            ￥{{ detail.data.goodsList[1].price }}
+                                        </span>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="tag-choose" ng-switch="detail.data.goodsList[0].changeType">
+                            <i class="tag tag-shanchu" ng-switch-when="1">
+                                删除
+                            </i>
+                            <i class="tag tag-xiugai" ng-switch-when="2">
+                                修改
+                            </i>
+                            <i class="tag tag-xinzeng" ng-switch-when="3">
+                                新增
+                            </i>
+                            <i class="tag tag-yijia" ng-switch-default>
+                                议价
+                            </i>
+                        </div>
+                        <i class="arrow">
+                            <img src="assets/images/tb-received/arrow.png" alt="">
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="account">
+            <section class="title">
+                <span>结算记录</span>
+            </section>
+            <div class="count-info" ng-repeat="item in detail.data.balanceList" hm-tap="detail.linkToRecord($index)">
+                <table>
+                    <tr>
+                        <td>
+                            结算单号
+                        </td>
+                        <td>
+                            {{ item.settlementNo }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            订单金额
+                        </td>
+                        <td class="price">
+                                <span>
+                                    {{ item.accountAmount }}
+                                </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="payment">
+                    <span>
+                        付款方式
+                    </span>
+                <strong>
+                    担保支付
+                </strong>
+            </div>
+
+        </div>
+        <!--<div class="sale-man">-->
+            <!--<section class="title">-->
+                <!--<span>-->
+                    <!--供应商备注-->
+                <!--</span>-->
+            <!--</section>-->
+            <!--<div class="content">-->
+                <!--<p>-->
+                    <!--供应商备注供应商备注供应商备注供应商备注供应商备注供应商备注-->
+                <!--</p>-->
+            <!--</div>-->
+            <!--<section class="title-order">-->
+                <!--<span>-->
+                    <!--订单备注-->
+                <!--</span>-->
+            <!--</section>-->
+            <!--<div class="orderbz">-->
+                <!--<textarea name="" id="" cols="30" rows="10" placeholder="请输入订单相关备注"></textarea>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="btn">
+            <span>
+                取消订单
+            </span>
+            <span>
+                撤回订单
+            </span>
+            <span>
+                确认订单
+            </span>
+        </div>
+    </div>
+</body>
+</html>

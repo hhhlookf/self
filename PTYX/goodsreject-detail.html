@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html  ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <title>退货详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <link rel="stylesheet" href="assets/css/tb-pay/rg-detail.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/goodsreject/dataOpera.js"></script>
+    <script src="assets/js/goodsreject/detail.js"></script>
+</head>
+<body ng-cloak ng-controller="DetailCtrl">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="info-list">
+                <div class="info">
+                    <div class="info-title">退货单号</div>
+                    <div class="info-desc">{{data.stockBackOrderNo}}</div>
+                </div>
+                <div class="info">
+                    <div class="info-title price">退货金额</div>
+                    <div class="info-desc price">&yen;{{data.money | number: 2}}</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">采购商</div>
+                    <div class="info-desc">{{data.buyer}}</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">联系人</div>
+                    <div class="info-desc">{{data.linkMan}}</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">联系电话</div>
+                    <div class="info-desc">{{data.mobile}}</div>
+                </div>
+                <div class="info">
+                    <div class="info-title">退货理由</div>
+                    <div class="info-desc reason">{{data.notes || '无'}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-head">
+            <h2 class="card-hd-title">退货清单</h2>
+            <a href="" class="card-hd-link" hm-tap="goToGoodsList()" ng-if="data.goodsList.length != 0">全部商品 ({{data.goodsList.length}})</a>
+        </div>
+        <div class="card-body">
+            <div class="item-list">
+                <a href="javascript:void(0)"
+                   class="item item-link"
+                   ng-repeat="item in data.goodsList.slice(0, 2)"
+                   hm-tap="goToItemDetail()">
+                    <h3 class="item-name">{{item.goodsName}}</h3>
+                    <div class="item-info">
+                        <div class="item-info-name">规格</div>
+                        <div class="item-info-desc">{{item.dimension}}</div>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-info-name">退货价</div>
+                        <div class="item-info-desc">&yen;{{item.price | number: 4}}</div>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-info-name">退货数量</div>
+                        <div class="item-info-desc">{{item.num + item.unit}}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-head">
+            <h2 class="card-hd-title">冲红记录</h2>
+        </div>
+        <div class="card-body" ng-if="data.redList.length != 0">
+            <div class="item item-link" ng-repeat="red in data.redList" hm-tap="goToRedDetail()">
+                <div class="item-info">
+                    <div class="item-info-name ch">结算单号</div>
+                    <div class="item-info-desc">{{red.settlementNo}}</div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-name ch">应收金额</div>
+                    <div class="item-info-desc">&yen;{{red.payableAmount | number: 2}}</div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-name ch">已冲红金额</div>
+                    <div class="item-info-desc">&yen;{{red.redAmount | number: 2}}</div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-name ch">拟冲红金额</div>
+                    <div class="item-info-desc price">&yen;{{red.planRedAmount | number: 2}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="foot-fixed">
+        <div class="btn btn-default" hm-tap="fallback()">回退</div>
+        <div class="btn btn-cyan" hm-tap="revoke()">撤销</div>
+        <div class="btn btn-primary" hm-tap="agree()">同意</div>
+    </footer>
+
+</body>
+</html>

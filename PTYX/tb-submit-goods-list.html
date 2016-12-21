@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品清单</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tb-submit/goods-list.js"></script>
+</head>
+<body ng-cloak ng-controller="GoodsListCtrl">
+
+<!--ng-class="{'mark-update':item.changeType==2, 'mark-barg':item.bargain&&item.changeType!=2, 'mark-delete':!item.bargain&&item.changeType==1, 'mark-add':!item.bargain&&item.changeType==3}"-->
+    <div class="card card-inline" ng-repeat="item in goodsList">
+        <div class="card-body">
+            <a href="javascript:void(0)"
+               class="item item-link"
+               ng-class="{'mark-barg':item.bargain}"
+               hm-tap="goToItemDetail()">
+
+                <!--<h3 class="item-name">{{item.bargain}}</h3>-->
+
+                <h3 class="item-name">{{item.goodsName}}</h3>
+                <div class="item-info">
+                    <div class="item-info-name">规格</div>
+                    <div class="item-info-desc">{{item.dimension}}</div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-name">采购数量</div>
+                    <div class="item-info-desc">{{item.finalQty + item.unit}}</div>
+                </div>
+                <div class="item-info">
+                    <div class="item-info-name">单价</div>
+                    <div class="item-info-desc price">&yen;{{item.salePrice | number: 4}}</div>
+                </div>
+                <div class="item-info" ng-if="item.bargain">
+                    <div class="item-info-name">期望价格</div>
+                    <div class="item-info-desc price">&yen;{{item.bargainPrice | number: 4}}</div>
+                </div>
+                <div class="item-info" ng-if="item.bargain">
+                    <div class="item-info-name">备注</div>
+                    <div class="item-info-desc">{{item.bargainNotes || '无'}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

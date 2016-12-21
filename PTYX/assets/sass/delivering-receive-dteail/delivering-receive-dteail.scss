@@ -1,0 +1,88 @@
+@import "../reset";
+@import "../mixins";
+html, body {
+  background: #fff;
+}
+.delivering-receive-detail {
+  padding-bottom: (110/27)+rem;
+  .left-side {
+    float: left;
+    width: (190/27)+rem;
+    color: #808080;
+  }
+  .right-side {
+    float: left;
+    width: (440/27)+rem;
+    color: #4B4B4B;
+  }
+  .color {
+    color: #FE5534;
+  }
+  .color2 {
+    color: #3285CD;
+  }
+  .detail-con {
+    padding: 1rem (28/27)+rem 0;
+    li {
+      min-height: (42/27)+rem;
+      margin-bottom: (29/27)+rem;
+      @extend .clearfix;
+    }
+  }
+  .goods-name {
+    color: #4A4A4A;
+    font-size: (34/27)+rem;
+    margin-bottom: (22/27)+rem;
+  }
+}
+.top-block {
+  position: relative;
+  padding: (43/27)+rem (28/27)+rem (28/27)+rem;
+  border-bottom: (15/27)+rem solid #f6f9f9;
+  font-size: (28/27)+rem;
+  &:before {
+    @include border(bottom);
+  }
+  li {
+    min-height: (42/27)+rem;
+    margin-bottom: (16/27)+rem;
+    line-height: (42/27)+rem;
+    @extend .clearfix;
+  }
+}
+.detail-con {
+  padding: 1rem (28/27)+rem 0;
+  li {
+    min-height: (42/27)+rem;
+    margin-bottom: (29/27)+rem;
+    @extend .clearfix;
+  }
+}
+.goods-name {
+  color: #4A4A4A;
+  font-size: (34/27)+rem;
+  margin-bottom: (22/27)+rem;
+}
+.btn {
+  width: (500/27)+rem;
+  margin: (54/27)+rem auto 0;
+  button {
+    display: block;
+    width: 100%;
+    height: (66/27)+rem;
+    margin-bottom: (48/27)+rem;
+    font-size: (28/27)+rem;
+    line-height: (66/27)+rem;
+    border-radius: 4px;
+  }
+  .sure {
+    background: #2CBCAD;
+    color: #fff;
+  }
+  .cancel {
+    border: 1px solid #2CBCAD;
+    background: #fff;
+    color: #2CBCAD;
+    box-sizing: border-box;
+  }
+}

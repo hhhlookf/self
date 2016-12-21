@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@import "../mixins";
+
+body {padding-bottom: (90/27)+rem;}
+.pay-mode.info {
+  position: relative;
+  height:(94/27)+rem;
+  margin-top: (10/27)+rem;
+  background: url(../../images/tb-submit/arrow-right.png) no-repeat 96% center;
+  background-size: (16/27)+rem (32/27)+rem;
+  &:after {@include border(top)}
+  > * {line-height: (94/27)+rem;}
+}
+.card-foot {
+  box-sizing: border-box;
+  padding: (31/27)+rem 0;
+}
+.settl-add {
+  display: block;
+  width: (230/27)+rem;
+  height: (32/27)+rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-size: (26/27)+rem;
+  color: #2CBCAD;
+  text-align: center;
+  span {vertical-align: middle;}
+  &:before {
+    content: '';
+    display: inline-block;
+    width: (32/27)+rem;
+    height: (32/27)+rem;
+    background: url(../../images/tb-submit/add.png);
+    background-size: (32/27)+rem (32/27)+rem;
+    vertical-align: middle;
+  }
+}
+.remark {
+  display: block;
+  width: (668/27)+rem;
+  height: (260/27)+rem;
+  box-sizing: border-box;
+  padding: (20/27)+rem;
+  border: none;
+  box-shadow: 0 0 1px 1px #ebebeb;
+  border-radius: (5/27)+rem;
+  margin: 0 auto;
+  resize: none;
+
+  font-size: (26/27)+rem;
+  color: #333;
+  line-height: (36/27)+rem;;
+}
+.info-list {
+  padding-bottom: 0;
+}

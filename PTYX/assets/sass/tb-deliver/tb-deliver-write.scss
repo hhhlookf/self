@@ -1,0 +1,227 @@
+@import "../reset";
+@import "../mixins";
+$color: #808080;
+$border: 1px solid rgba(#BDBDBD, 0.5);
+body, html {
+  background: #fff;
+}
+.tb-deliver-write-info {
+  padding-bottom: (28/27)+rem;
+  .item {
+    margin-top: (45/27)+rem;
+    @extend .clearfix;
+    span {
+      float: left;
+      width: (150/27)+rem;
+      height: (60/27)+rem;
+      margin-left: (30/27)+rem;
+      color: $color;
+      font-size: (28/27)+rem;
+      line-height: (60/27)+rem;
+    }
+    input, .date {
+      float: left;
+      width: (510/27)+rem;
+      height: (68/27)+rem;
+      padding-left: (10/27)+rem;
+      border: $border;
+      border-radius: 0;
+      color: #4b4b4b;
+      font-size: (28/27)+rem;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+    }
+    .date {
+      position: relative;
+      line-height: (60/27)+rem;
+      &:after {
+        position: absolute;
+        right: (20/27)+rem;
+        top: 50%;
+        content: '';
+        width: (27/27)+rem;
+        height: (15/27)+rem;
+        margin-top: (-7/27)+rem;
+        background: url("../../images/application-handle/arrow-bot.png");
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+.deliver-detail {
+  border-top: (21/27)+rem solid #F8F8F8;
+  .list-btn {
+    display: table;
+    li {
+      display: table-cell;
+      width: 1%;
+      height: (95/27)+rem;
+      font-size: (30/27)+rem;
+      line-height: (95/27)+rem;
+      text-align: center;
+      &:nth-child(1) {
+        background: #F1F1F1;
+        color: #808080;
+      }
+      &:nth-child(2) {
+        background: #2CBCAD;
+        color: #fff;
+      }
+    }
+  }
+  header {
+    position: relative;
+    height: (72/27)+rem;
+    padding-left: (30/28)+rem;
+    font-size: (30/27)+rem;;
+    line-height: (72/27)+rem;
+    &:after {
+      @include border(bottom);
+    }
+  }
+  .goods {
+    position: relative;
+    padding-top: (20/27)+rem;
+    //&:after {
+    //  @include border(bottom);
+    //}
+    .add-item {
+      padding: (20/27)+rem 0;
+      border-top: (11/27)+rem solid #F8F8F8;
+    }
+    .delete {
+      width: (80/27)+rem;
+      margin: 0 auto;
+      color: #DF0722;
+      font-size: (30/27)+rem;
+      padding-left: (37/27)+rem;
+      background: url(../../images/tb-deliver/delect-pici.png) 0 center no-repeat;
+      background-size: (27/27)+rem (27/27)+rem;
+    }
+    .add-new-item {
+      width: (302/27)+rem;
+      height: (60/27)+rem;
+      margin: (30/27)+rem auto;
+      border: 1px solid #2CBCAD;
+      text-align: center;
+      color: #2CBCAD;
+      font-size: (30/27)+rem;
+      line-height: (62/27)+rem;
+      border-radius: (35/27)+rem;
+      background: url(../../images/tb-deliver/add.png) (45/27)+rem center no-repeat;
+      background-size: (23/27)+rem (23/27)+rem;
+    }
+    .name {
+      font-size: (32/27)+rem;
+      color: #4b4b4b;
+      line-height: (90/27)+rem;
+    }
+    .record {
+      margin-bottom: (20/27)+rem;
+      @extend .clearfix;
+      font-size: (28/27)+rem;
+      input, .date {
+        float: left;
+        width: (510/27)+rem;
+        height: (68/27)+rem;
+        padding-left: (10/27)+rem;
+        border: $border;
+        border-radius: 0;
+        color: #4b4b4b;
+        font-size: (28/27)+rem;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+      }
+    }
+    .left {
+      float: left;
+      width: (150/27)+rem;
+      height: (60/27)+rem;
+      padding-left: (30/27)+rem;
+      line-height: (60/27)+rem;
+      color: $color;
+    }
+    .right {
+      float: left;
+      color: #4b4b4b;
+      line-height: (60/27)+rem;
+    }
+    .date {
+      position: relative;
+      line-height: (60/27)+rem;
+      &:after {
+        position: absolute;
+        right: (20/27)+rem;
+        top: 50%;
+        content: '';
+        width: (27/27)+rem;
+        height: (15/27)+rem;
+        margin-top: (-7/27)+rem;
+        background: url("../../images/application-handle/arrow-bot.png");
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+
+.tb-deliver-write-goods {
+  .goods {
+    position: relative;
+    padding-left: (30/27)+rem;
+    padding-bottom: (20/27)+rem;
+    &:after {
+      @include border(bottom);
+    }
+
+    .name {
+      font-size: (32/27)+rem;
+      color: #4b4b4b;
+      line-height: (90/27)+rem;
+    }
+    .record {
+      margin-bottom: (30/27)+rem;
+      @extend .clearfix;
+      font-size: (28/27)+rem;
+      line-height: (36/27)+rem;
+      &.include {
+        position: relative;
+        line-height: (58/27)+rem;
+      }
+      input, .date {
+        float: left;
+        width: (510/27)+rem;
+        height: (58/27)+rem;
+        padding-left: (10/27)+rem;
+        border: $border;
+        color: #4b4b4b;
+        font-size: (28/27)+rem;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+      }
+    }
+    .left {
+      float: left;
+      width: (135/27)+rem;
+      color: $color;
+    }
+    .right {
+      float: left;
+      color: #4b4b4b;
+    }
+    .date {
+      position: relative;
+      line-height: (60/27)+rem;
+      &:after {
+        position: absolute;
+        right: (20/27)+rem;
+        top: 50%;
+        content: '';
+        width: (27/27)+rem;
+        height: (15/27)+rem;
+        margin-top: (-7/27)+rem;
+        background: url("../../images/application-handle/arrow-bot.png");
+        background-size: 100% 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="cgmall">
+<head>
+    <meta charset="UTF-8">
+    <title>退货申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="stylesheet" href="assets/css/common/yang-common.min.css">
+    <link rel="stylesheet" href="assets/css/goodsreject/apply.min.css">
+    <script src="assets/js/lib/angular.min.js"></script>
+    <script src="assets/js/lib/hammer.min.js"></script>
+    <script src="assets/js/lib/angular-hammer.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/goodsreject/manage-apply.js"></script>
+</head>
+<body ng-cloak ng-controller="ManageApplyCtrl">
+
+    <h2>联系人</h2>
+    <input type="text" ng-model="linkMan">
+
+    <h2>联系电话</h2>
+    <input type="number" ng-model="mobile">
+
+    <h2>选择供应商</h2>
+    <select ng-model="currSupplier" ng-options="supplier.id as supplier.name for supplier in supplierList"></select>
+
+    <h2>退货理由</h2>
+    <div class="reason" ng-class="{'no-bg': reason}">
+        <textarea maxlength="130" ng-model="reason"></textarea>
+    </div>
+
+</body>
+</html>
